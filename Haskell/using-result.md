@@ -102,11 +102,6 @@ This is the same response we got from the Haskell code!
   handle it somehow. This forces the user to not leave things up to
   chance by forgetting to deal with the possibility of an error.
 
-### Strengths Compared to Haskell
-- Rust forces you to use a type that implements the
-  [Error](https://doc.rust-lang.org/std/error/trait.Error.html) trait
-  rather than letting it be any type like Haskell's `Either`.
-
 ### Weaknesses Compared to Haskell
 - `Either` is a Monad and Rust doesn't have a monad's properties explicitly
   built into the language or `Result`. This means some transformations or
