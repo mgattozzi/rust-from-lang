@@ -94,7 +94,10 @@ fn main() {
     // start all workers
     for i in 0..100 {
         let tx = tx.clone();
-        thread::spawn(move || { tx.send(i * i).unwrap(); });
+        thread::spawn(move || {
+            // send our work result, and warn if master thread had a panic
+            tx.send(i * i).expect("master thread exited prematurely");
+        });
     }
 
     // close our transmit handle so channel is closed after workers exit
