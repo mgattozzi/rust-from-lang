@@ -64,7 +64,6 @@ Let's take a look at a Rust version of the code above:
 // have the same generic functionality of the Haskell example
 extern crate num;
 use num::Num;
-use std::io::{ErrorKind, Error};
 
 pub fn main() {
     match div_by(30, 10) {
@@ -78,9 +77,9 @@ pub fn main() {
 
 }
 
-fn div_by<T: Num>(num: T, denom: T) -> Result<T, Error> {
+fn div_by<T: Num>(num: T, denom: T) -> Result<T, &'static str> {
     match denom.is_zero() {
-        true  => Err(Error::new(ErrorKind::Other, "Can't divide by 0")),
+        true  => Err("Can't divide by 0"),
         false => Ok(num / denom),
     }
 }
