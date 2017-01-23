@@ -24,3 +24,6 @@
 ## Ruby
 - [Rust for Rubyists](https://github.com/steveklabnik/rust_for_rubyists)
   by Steve Klabnik
+  
+## Python
+- [Rust for Python Programmers (2015)](http://lucumr.pocoo.org/2015/5/27/rust-for-pythonistas/)
