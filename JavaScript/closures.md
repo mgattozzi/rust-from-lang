@@ -34,12 +34,12 @@ expressed in JavaScript as:
 ```javascript
 var nums = [1, 2, 3, 4, 5];
 var sos = nums
-	.map(function(i) {
-		return i * i;
-	})
-	.reduce(function(acc, i) {
-		return acc + i;
-	}, 0);
+    .map(function(i) {
+        return i * i;
+    })
+    .reduce(function(acc, i) {
+        return acc + i;
+    }, 0);
 console.log(sos);
 ```
 
@@ -51,14 +51,14 @@ Writing a `map` function in JavaScript is also fairly straightforward:
 
 ```javascript
 function map(list, fn) {
-	// we need to make a new list so we don't modify the old one
-	nlist = [];
-	for (var i = 0; i < list.length; i++) {
-		// apply fn to each element of the list
-		nlist.push(fn(list[i]));
-	}
-	// the mapped list is in nlist
-	return nlist;
+    // we need to make a new list so we don't modify the old one
+    nlist = [];
+    for (var i = 0; i < list.length; i++) {
+        // apply fn to each element of the list
+        nlist.push(fn(list[i]));
+    }
+    // the mapped list is in nlist
+    return nlist;
 }
 ```
 
@@ -89,8 +89,8 @@ they actually work out to be quite similar:
 fn main() {
     let nums = vec![1, 2, 3, 4, 5];
     let sos = nums.iter()
-	    .map(|i| i * i)
-	    .fold(0, |acc, i| acc + i);
+        .map(|i| i * i)
+        .fold(0, |acc, i| acc + i);
     println!("{}", sos);
 }
 ```

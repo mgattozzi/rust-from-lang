@@ -25,37 +25,37 @@ The Go code ends up looking like this:
 package main
 
 import (
-	"fmt"
-	"sync"
+    "fmt"
+    "sync"
 )
 
 func main() {
-	var wg sync.WaitGroup
-	nums := make(chan int)
+    var wg sync.WaitGroup
+    nums := make(chan int)
 
-	// start workers
-	for i := 0; i < 100; i++ {
-		wg.Add(1)
-		go func(i int) {
-			defer wg.Done()
-			nums <- i * i
-		}(i)
-	}
+    // start workers
+    for i := 0; i < 100; i++ {
+        wg.Add(1)
+        go func(i int) {
+            defer wg.Done()
+            nums <- i * i
+        }(i)
+    }
 
-	go func() {
-		// close channel when they're done
-		wg.Wait()
-		close(nums)
-	}()
+    go func() {
+        // close channel when they're done
+        wg.Wait()
+        close(nums)
+    }()
 
-	// accumulate worker results
-	sum := 0
-	for num := range nums {
-		sum += num
-	}
+    // accumulate worker results
+    sum := 0
+    for num := range nums {
+        sum += num
+    }
 
-	// print result
-	fmt.Println("sum is", sum)
+    // print result
+    fmt.Println("sum is", sum)
 }
 ```
 
